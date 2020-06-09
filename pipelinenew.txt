@@ -1,0 +1,44 @@
+pipeline
+{
+    agent any
+    stages
+    {
+        stage('scm checkout')
+        {
+            steps
+            {
+                git branch: 'master' url:'https://github.com/tiwariak1992/Demo1.git'
+            }
+        }
+        stage('compile')
+        {
+            steps
+            {
+                withMaven(jdk:'localjdk- 1.8', maven:'localmaven')
+                {
+                    sh 'mvn compile'
+                }
+            }
+        }
+        stage('test')
+        {
+            steps
+            {
+               withMaven(jdk:'localjdk-1.8', maven:'localmaven')
+               {
+                   sh 'mvn test'
+               }
+            }
+            stage('install')
+            {
+                steps
+                {
+                    withMaven(jdk:'localjdk-1.8', maven:'localmaven')
+                    {
+                        sh 'mvn install'
+                    }
+                }
+            }
+        }
+    }
+}
