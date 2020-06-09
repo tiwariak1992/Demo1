@@ -3,7 +3,7 @@ pipeline
     agent any
     stages
     {
-        stages(scm checkout)
+        stages('scm checkout')
         {
            git branch: 'master'  url: 'https://github.com/tiwariak1992/git-test.git'
         }
