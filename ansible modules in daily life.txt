@@ -1,0 +1,7 @@
+1.apache service restart using yum module and httpd service.
+2.shell&coomand module to execute scripts on nodes.
+3.copy module to copy files from local to node and fetch module to copy files from node to local.
+4.firewalld module for allowing or blocking any port on a particular node or more than 1 node.
+5.user module for creation of users and for adding users to group.
+6.group module for creation of groups.
+7.File module for creation of files and directories.
